@@ -5,7 +5,9 @@ export class Property {
         public country: string,
         public state: string,
         public name: string,
+
         public description_1: string,
+
         public brochure: string,
         public ubication: string,
         public virtual_tour: string,
@@ -14,6 +16,7 @@ export class Property {
         public delivery: string,
         public master_plan: string,
         public video: string,
+
         public description_2: string,
     ) {}
 

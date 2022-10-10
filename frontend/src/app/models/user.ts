@@ -4,11 +4,10 @@ export class User {
         public id: number,
         public name: string,
         public surname: string,
-        public role: string,
         public email: string,
-        public password: string,
-        public description: string,
-        public image: string
+        public phone_number: string,
+        public role: string,
+        public password: string
     ) {}
 
 }

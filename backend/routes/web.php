@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PropertyController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,23 +17,13 @@ use App\Http\Controllers\PropertyController;
 
 Route::get('/', function () {
     // return view('welcome');
-    return '<h1>Hola mundo desde ciudad maderas</h1>';
+    return '<h1>Hola mundo, desde Ciudad Maderas!</h1>';
 });
 
+// Rutas de las propiedades
 Route::get('/api/property/{id}', [PropertyController::class, 'get_property_by_id']);
+Route::get('/api/{detail}/{id_property}', [PropertyController::class, 'get_details']);
 
-Route::get('/api/location/{id_property}', [PropertyController::class, 'get_location']);
-
-Route::get('/api/virtual_tour/{id_property}', [PropertyController::class, 'get_virtual_tour']);
-
-Route::get('/api/surfaces_amenities/{id_property}', [PropertyController::class, 'get_surfaces_amenities']);
-
-Route::get('/api/financing/{id_property}', [PropertyController::class, 'get_financing']);
-
-Route::get('/api/delivery/{id_property}', [PropertyController::class, 'get_delivery']);
-
-Route::get('/api/mater_plan/{id_property}', [PropertyController::class, 'get_mater_plan']);
-
-
-// Route::post('/api/save_user', [::class, '']);
-// Route::get('/api/get_users', [::class, '']);
+// Rutas de los usuarios
+Route::post('/api/save_user', [UserController::class, 'save_user']);
+Route::get('/api/get_users', [UserController::class, 'get_users']);

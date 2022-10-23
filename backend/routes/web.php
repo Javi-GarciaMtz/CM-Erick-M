@@ -27,3 +27,4 @@ Route::get('/api/{detail}/{id_property}', [PropertyController::class, 'get_detai
 // Rutas de los usuarios
 Route::post('/api/save_user', [UserController::class, 'save_user']);
 Route::get('/api/get_users', [UserController::class, 'get_users']);
+Route::get('/api/get/user/{id}', [UserController::class, 'get_user_by_id']);

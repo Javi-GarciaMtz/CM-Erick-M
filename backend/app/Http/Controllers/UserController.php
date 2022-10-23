@@ -73,4 +73,36 @@ class UserController extends Controller {
 
     }
 
+    public function get_user_by_id($id) {
+        try {
+            $user = DB::table('users')->where('id', $id)->get();
+
+            if(isset($user[0])) {
+                $data = array(
+                    'code' => 200,
+                    'status' => 'Success',
+                    'user' => $user[0]
+                );
+
+            } else {
+                $data = array(
+                    'code' => 404,
+                    'status' => 'Error',
+                    'msg' => "No existe el usuario con id: ".$id
+                );
+
+            }
+
+        } catch (\Throwable $th) {
+            $data = array(
+                'code' => 400,
+                'status' => 'Error',
+                'msg' => "Error al conectarse a la base de datos!"
+            );
+
+        }
+
+        return response()->json($data, $data['code']);
+    }
+
 }

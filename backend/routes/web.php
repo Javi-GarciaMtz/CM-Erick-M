@@ -16,8 +16,8 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    // return view('welcome');
-    return '<h1>Hola mundo, desde Ciudad Maderas!</h1>';
+    return view('welcome');
+    // return '<h1>Hola mundo, desde Ciudad Maderas!</h1>';
 });
 
 // Rutas de las propiedades
@@ -25,6 +25,8 @@ Route::get('/api/property/{id}', [PropertyController::class, 'get_property_by_id
 Route::get('/api/{detail}/{id_property}', [PropertyController::class, 'get_details']);
 
 // Rutas de los usuarios
-Route::post('/api/save_user', [UserController::class, 'save_user']);
-Route::get('/api/get_users', [UserController::class, 'get_users']);
-Route::get('/api/get/user/{id}', [UserController::class, 'get_user_by_id']);
+Route::post('/api/save/user', [UserController::class, 'save_user']);
+Route::get('/api/users', [UserController::class, 'getUsers']);
+Route::get('/api/user/{id}', [UserController::class, 'get_user_by_id']);
+
+/* RUTAS SIN GUIONES; UTILIZAR PURO / (SLASH) */

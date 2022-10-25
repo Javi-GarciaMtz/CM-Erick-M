@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+/* NOMNCLATUR DE METODOS UILIZAR CAMELCASE ,i.e, saveUser, getUsers */
+
+/* NONCLATURA DE ATRIBUTOS, VARIABLES, UTILIZAR GUIONES, i.e, $params_array */
+
 class UserController extends Controller {
 
     public function save_user(Request $request) {
@@ -40,7 +44,8 @@ class UserController extends Controller {
                 $data = array(
                     'code' => 400,
                     'status' => 'Error',
-                    'msg' => "Error al conectarse a la base de datos!"
+                    'msg' => "Error al conectarse a la base de datos!",
+                    'method' => 'GETUSERSTWO'
                 );
 
             }
@@ -64,7 +69,8 @@ class UserController extends Controller {
             $data = array(
                 'code' => 400,
                 'status' => 'Error',
-                'msg' => "Error al conectarse a la base de datos!"
+                'msg' => "Error al conectarse a la base de datos!",
+                'method' => 'GETUSERS'
             );
 
         }
@@ -97,7 +103,8 @@ class UserController extends Controller {
             $data = array(
                 'code' => 400,
                 'status' => 'Error',
-                'msg' => "Error al conectarse a la base de datos!"
+                'msg' => "Error al conectarse a la base de datos!",
+                'method' => 'GETUSERSBYID'
             );
 
         }

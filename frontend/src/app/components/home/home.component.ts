@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
     private _userService: UserService
   ) {
     this.page_title = 'Home of City Maderas XD'
-    this.user = new User('JhonAng', 'Doe', 'jhon@mail.mx', '+525542759898');
+    this.user = new User('JhonAngTREEEES', 'Doe', 'jhon@mail.mx', '+525542759898');
   }
 
   ngOnInit(): void {

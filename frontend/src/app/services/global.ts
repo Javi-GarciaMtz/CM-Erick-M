@@ -1,3 +1,3 @@
 export var global = {
-    url: 'http://localhost/CM-Erick-M/backend/public/api/'
+    url: 'http://localhost/CM-Erick-M/backendV2/public/api/'
 }

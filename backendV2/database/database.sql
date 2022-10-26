@@ -20,6 +20,7 @@ CREATE TABLE IF NOT EXISTS properties(
     state   VARCHAR(100),
     title   VARCHAR(100),
     video_link  VARCHAR(255),
+    brochure VARCHAR(255),
     description TEXT,
     CONSTRAINT pk_properties PRIMARY KEY(id)
 )ENGINE=InnoDb;
@@ -40,57 +41,58 @@ CREATE TABLE IF NOT EXISTS locations(
 )ENGINE=InnoDb;
 
 -- ========================================================
+-- >>>>>> Tours virtuales quedan descartados de esta primera version del proyecto
 
-CREATE TABLE IF NOT EXISTS virtual_tours(
-    id INT(255) AUTO_INCREMENT NOT NULL,
-    property_id INT(255) NOT NULL,
-    description TEXT,
-    model VARCHAR(255),
-    model_img VARCHAR(255),
-    CONSTRAINT pk_virtual_tours PRIMARY KEY(id),
-    CONSTRAINT fk_properties_virtual_tours FOREIGN KEY(property_id) REFERENCES properties(id)
-)ENGINE=InnoDb;
-
--- ========================================================
-
--- CREATE TABLE IF NOT EXISTS surfaces_amenities(
+-- CREATE TABLE IF NOT EXISTS virtual_tours(
 --     id INT(255) AUTO_INCREMENT NOT NULL,
 --     property_id INT(255) NOT NULL,
-
---     batch_1 VARCHAR(255),
---     description_1 TEXT,
---     img_1 VARCHAR(255),
-
---     batch_2 VARCHAR(255),
---     description_2 TEXT,
---     img_2 VARCHAR(255),
-
---     things_in_batch TEXT,
-
---     amenitie_1 VARCHAR(255),
---     amenitie_vid_1 TEXT,
---     amenitie_virtual_tour_1 VARCHAR(255),
-
---     amenitie_2 VARCHAR(255),
---     amenitie_vid_2 TEXT,
---     amenitie_virtual_tour_2 VARCHAR(255),
-
---     CONSTRAINT pk_surfaces_amenities PRIMARY KEY(id),
---     CONSTRAINT fk_properties_surfaces_amenities FOREIGN KEY(property_id) REFERENCES properties(id)
+--     description TEXT,
+--     model VARCHAR(255),
+--     model_img VARCHAR(255),
+--     CONSTRAINT pk_virtual_tours PRIMARY KEY(id),
+--     CONSTRAINT fk_properties_virtual_tours FOREIGN KEY(property_id) REFERENCES properties(id)
 -- )ENGINE=InnoDb;
 
 -- ========================================================
 
-CREATE TABLE IF NOT EXISTS financings(
+-- batch o lots ??? --- es para lotes
+CREATE TABLE IF NOT EXISTS surfaces(
     id INT(255) AUTO_INCREMENT NOT NULL,
     property_id INT(255) NOT NULL,
-    benefits_list   TEXT,
-    description_1 TEXT,
-    finance_plans TEXT,
-    finance_table TEXT,
-    CONSTRAINT pk_financings PRIMARY KEY(id),
-    CONSTRAINT fk_properties_financings FOREIGN KEY(property_id) REFERENCES properties(id)
+    type_surfaces VARCHAR(255),
+    title VARCHAR(255),
+    img VARCHAR(255),
+    description TEXT,
+    CONSTRAINT pk_surfaces PRIMARY KEY(id),
+    CONSTRAINT fk_properties_surfaces FOREIGN KEY(property_id) REFERENCES properties(id)
 )ENGINE=InnoDb;
+
+-- ========================================================
+
+CREATE TABLE IF NOT EXISTS amenities(
+    id INT(255) AUTO_INCREMENT NOT NULL,
+    property_id INT(255) NOT NULL,
+    title VARCHAR(255),
+    img VARCHAR(255),
+    video VARCHAR(255),
+    description TEXT,
+    CONSTRAINT pk_amenities PRIMARY KEY(id),
+    CONSTRAINT fk_properties_amenities FOREIGN KEY(property_id) REFERENCES properties(id)
+)ENGINE=InnoDb;
+
+-- ========================================================
+-- >>>>> pendiente, milton sabe mas que onda XD
+
+-- CREATE TABLE IF NOT EXISTS financings(
+--     id INT(255) AUTO_INCREMENT NOT NULL,
+--     property_id INT(255) NOT NULL,
+--     benefits_list   TEXT,
+--     description_1 TEXT,
+--     finance_plans TEXT,
+--     finance_table TEXT,
+--     CONSTRAINT pk_financings PRIMARY KEY(id),
+--     CONSTRAINT fk_properties_financings FOREIGN KEY(property_id) REFERENCES properties(id)
+-- )ENGINE=InnoDb;
 
 -- ========================================================
 

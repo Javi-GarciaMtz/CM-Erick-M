@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from "@angular/common/http";
 import { routing, app_routing_providers } from "./app.routing";
@@ -34,7 +35,8 @@ import { ErrorComponent } from './components/error/error.component';
   imports: [
     BrowserModule,
     routing,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [
     app_routing_providers

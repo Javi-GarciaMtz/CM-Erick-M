@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS surfaces(
     property_id INT(255) NOT NULL,
     type_surfaces VARCHAR(255),
     title VARCHAR(255),
-    img VARCHAR(255),
+    img TEXT,
     description TEXT,
     CONSTRAINT pk_surfaces PRIMARY KEY(id),
     CONSTRAINT fk_properties_surfaces FOREIGN KEY(property_id) REFERENCES properties(id)
@@ -73,8 +73,8 @@ CREATE TABLE IF NOT EXISTS amenities(
     id INT(255) AUTO_INCREMENT NOT NULL,
     property_id INT(255) NOT NULL,
     title VARCHAR(255),
-    img VARCHAR(255),
-    video VARCHAR(255),
+    img TEXT
+    video TEXT,
     description TEXT,
     CONSTRAINT pk_amenities PRIMARY KEY(id),
     CONSTRAINT fk_properties_amenities FOREIGN KEY(property_id) REFERENCES properties(id)
@@ -83,16 +83,17 @@ CREATE TABLE IF NOT EXISTS amenities(
 -- ========================================================
 -- >>>>> pendiente, milton sabe mas que onda XD
 
--- CREATE TABLE IF NOT EXISTS financings(
---     id INT(255) AUTO_INCREMENT NOT NULL,
---     property_id INT(255) NOT NULL,
---     benefits_list   TEXT,
---     description_1 TEXT,
---     finance_plans TEXT,
---     finance_table TEXT,
---     CONSTRAINT pk_financings PRIMARY KEY(id),
---     CONSTRAINT fk_properties_financings FOREIGN KEY(property_id) REFERENCES properties(id)
--- )ENGINE=InnoDb;
+CREATE TABLE IF NOT EXISTS financings(
+    id INT(255) AUTO_INCREMENT NOT NULL,
+    property_id INT(255) NOT NULL,
+    benefits_list   TEXT,
+    description_1 TEXT,
+    finance_plans TEXT,
+    captions TEXT, <<<<<<<<<<<<<<<<<<<<<<<
+    finance_table JSON,
+    CONSTRAINT pk_financings PRIMARY KEY(id),
+    CONSTRAINT fk_properties_financings FOREIGN KEY(property_id) REFERENCES properties(id)
+)ENGINE=InnoDb;
 
 -- ========================================================
 

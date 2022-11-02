@@ -15,14 +15,14 @@ class PropertyController extends Controller
             if(isset($property[0])) {
                 $data = array(
                     'code' => 200,
-                    'status' => 'Success',
+                    'status' => 'success',
                     'property' => $property[0]
                 );
 
             } else {
                 $data = array(
                     'code' => 404,
-                    'status' => 'Error',
+                    'status' => 'error',
                     'msg' => "No existe la propiedad con id: ".$id
                 );
 
@@ -31,7 +31,7 @@ class PropertyController extends Controller
         } catch (\Throwable $th) {
             $data = array(
                 'code' => 400,
-                'status' => 'Error',
+                'status' => 'error',
                 'msg' => "Error al conectarse a la base de datos!"
             );
 
@@ -47,14 +47,14 @@ class PropertyController extends Controller
             if(isset($detail_db[0]))  {
                 $data = array(
                     'code' => 200,
-                    'status' => 'Success',
+                    'status' => 'success',
                     'detail' => $detail_db[0]
                 );
 
             } else {
                 $data = array(
                     'code' => 404,
-                    'status' => 'Error',
+                    'status' => 'error',
                     'msg' => "No existe el detalle: ".$detail." con id de propiedad: ".$id_property
                 );
 
@@ -62,7 +62,7 @@ class PropertyController extends Controller
         } catch (\Throwable $th) {
             $data = array(
                 'code' => 400,
-                'status' => 'Error',
+                'status' => 'error',
                 'msg' => "Error al conectarse a la base de datos!"
             );
 

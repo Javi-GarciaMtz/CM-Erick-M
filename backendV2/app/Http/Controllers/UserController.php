@@ -14,8 +14,8 @@ class UserController extends Controller
 
         // Validar datos
         $validate = \Validator::make($params_array, [
-            'name'      =>  'required|alpha',
-            'surname'   =>  'alpha',
+            'name'      =>  'required|regex:/^[\pL\s\-]+$/u',
+            'surname'   =>  'regex:/^[\pL\s\-]+$/u',
             'email'     =>  'required|email',
             'phone'     =>  'required',
         ]);
@@ -23,7 +23,7 @@ class UserController extends Controller
         if($validate->fails()) {
             $data = array(
                 'status'    =>  'error',
-                'code'  =>  404,
+                'code'  =>  400,
                 'message'   =>  "El usuario no ha sido creado",
                 'errors'    =>  $validate->errors()
             );
@@ -33,14 +33,14 @@ class UserController extends Controller
                 $query_result = DB::insert('INSERT INTO users (id, name, surname, email, phone) values (?, ?, ?, ?, ?)', [null, $params_array['name'], $params_array['surname'], $params_array['email'], $params_array['phone']]);
                 $data = array(
                     'code' => 200,
-                    'status' => 'Success',
+                    'status' => 'success',
                     'msg' => 'Usuario almacenado correctamente.'
                 );
 
             } catch (\Throwable $th) {
                 $data = array(
                     'code' => 400,
-                    'status' => 'Error',
+                    'status' => 'error',
                     'msg' => "Error al conectarse a la base de datos!"
                 );
 
@@ -55,14 +55,14 @@ class UserController extends Controller
             $users = DB::table('users')->get();
             $data = array(
                 'code' => 200,
-                'status' => 'Success',
+                'status' => 'success',
                 'users' => $users
             );
 
         } catch (\Throwable $th) {
             $data = array(
                 'code' => 400,
-                'status' => 'Error',
+                'status' => 'error',
                 'msg' => "Error al conectarse a la base de datos!"
             );
 
@@ -78,14 +78,14 @@ class UserController extends Controller
             if(isset($user[0])) {
                 $data = array(
                     'code' => 200,
-                    'status' => 'Success',
+                    'status' => 'success',
                     'user' => $user[0]
                 );
 
             } else {
                 $data = array(
                     'code' => 404,
-                    'status' => 'Error',
+                    'status' => 'error',
                     'msg' => "No existe el usuario con id: ".$id
                 );
 
@@ -94,7 +94,7 @@ class UserController extends Controller
         } catch (\Throwable $th) {
             $data = array(
                 'code' => 400,
-                'status' => 'Error',
+                'status' => 'error',
                 'msg' => "Error al conectarse a la base de datos!"
             );
 

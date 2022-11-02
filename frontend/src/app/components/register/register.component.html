@@ -1,1 +1,33 @@
-<p>register works!</p>
+<h1>Registrate para más información!</h1>
+
+<div class="content">
+    <form class="" #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+        <div class="mb-3">
+          <label for="name">Nombre</label>
+          <input type="text" class="form-control" name="name" aria-describedby="nameHelp" placeholder="John" #name="ngModel" [(ngModel)]="user.name">
+          <div id="nameHelp" class="form-text">No compartiremos tu información con nadie.</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="surname">Apellido</label>
+            <input type="text" class="form-control" name="surname" placeholder="Doe" #surname="ngModel" [(ngModel)]="user.surname">
+        </div>
+
+        <div class="mb-3">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" name="email" placeholder="correo@mail.com" #email="ngModel" [(ngModel)]="user.email">
+        </div>
+
+        <div class="mb-3">
+            <label for="phone">Numero telefonico</label>
+            <input type="text" class="form-control" name="phone" placeholder="+52 55 1234 5678" #phone="ngModel" [(ngModel)]="user.phone">
+        </div>
+
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="">
+          <label class="form-check-label" for="">Deseo recibir ofertas publicitarias.</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Registrame</button>
+    </form>
+</div>

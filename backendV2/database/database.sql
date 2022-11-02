@@ -30,12 +30,12 @@ CREATE TABLE IF NOT EXISTS properties(
 CREATE TABLE IF NOT EXISTS locations(
     id INT(255) AUTO_INCREMENT NOT NULL,
     property_id INT(255) NOT NULL,
-    map_img VARCHAR(255),
+    map_img TEXT,
     title VARCHAR(255),
-    reference VARCHAR(255),
+    reference TEXT,
     points_interest TEXT,
-    maps_location   VARCHAR(255),
-    g_earth_location    VARCHAR(255),
+    maps_location   TEXT,
+    g_earth_location    TEXT,
     CONSTRAINT pk_locations PRIMARY KEY(id),
     CONSTRAINT fk_properties_locations FOREIGN KEY(property_id) REFERENCES properties(id)
 )ENGINE=InnoDb;
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS locations(
 
 -- ========================================================
 
--- batch o lots ??? --- es para lotes
+--- es para lotes
 CREATE TABLE IF NOT EXISTS surfaces(
     id INT(255) AUTO_INCREMENT NOT NULL,
     property_id INT(255) NOT NULL,
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS amenities(
     id INT(255) AUTO_INCREMENT NOT NULL,
     property_id INT(255) NOT NULL,
     title VARCHAR(255),
-    img TEXT
+    img TEXT,
     video TEXT,
     description TEXT,
     CONSTRAINT pk_amenities PRIMARY KEY(id),
@@ -81,7 +81,6 @@ CREATE TABLE IF NOT EXISTS amenities(
 )ENGINE=InnoDb;
 
 -- ========================================================
--- >>>>> pendiente, milton sabe mas que onda XD
 
 CREATE TABLE IF NOT EXISTS financings(
     id INT(255) AUTO_INCREMENT NOT NULL,
@@ -89,7 +88,7 @@ CREATE TABLE IF NOT EXISTS financings(
     benefits_list   TEXT,
     description_1 TEXT,
     finance_plans TEXT,
-    captions TEXT, <<<<<<<<<<<<<<<<<<<<<<<
+    captions TEXT,
     finance_table JSON,
     CONSTRAINT pk_financings PRIMARY KEY(id),
     CONSTRAINT fk_properties_financings FOREIGN KEY(property_id) REFERENCES properties(id)

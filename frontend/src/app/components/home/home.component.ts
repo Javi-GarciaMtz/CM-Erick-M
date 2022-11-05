@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   public page_title: string;
 
   constructor( ) {
-    this.page_title = 'Home of City Maderas XD'
+    this.page_title = 'Ciudad maderas!'
   }
 
   ngOnInit(): void { }

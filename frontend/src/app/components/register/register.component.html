@@ -1,11 +1,15 @@
-<h1>Registrate para más información!</h1>
 
-<div class="content">
-    <form class="" #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+<div class="d-flex justify-content-center">
+    <h3>Registrate para más información!</h3>
+</div>
+
+<div class="d-flex justify-content-center">
+
+    <form class="col-md-6 ml-0 pl-0 mb-3" #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
         <div class="mb-3">
-          <label for="name">Nombre</label>
-          <input type="text" class="form-control" name="name" aria-describedby="nameHelp" placeholder="John" #name="ngModel" [(ngModel)]="user.name">
-          <div id="nameHelp" class="form-text">No compartiremos tu información con nadie.</div>
+        <label for="name">Nombre</label>
+        <input type="text" class="form-control" name="name" aria-describedby="nameHelp" placeholder="John" #name="ngModel" [(ngModel)]="user.name">
+        <!-- <div id="nameHelp" class="form-text">No compartiremos tu información con nadie.</div> -->
         </div>
 
         <div class="mb-3">
@@ -24,10 +28,11 @@
         </div>
 
         <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="">
-          <label class="form-check-label" for="">Deseo recibir ofertas publicitarias.</label>
+        <input type="checkbox" class="form-check-input" id="">
+        <label class="form-check-label" for="">Deseo recibir ofertas publicitarias.</label>
         </div>
 
         <button type="submit" class="btn btn-primary">Registrame</button>
     </form>
+
 </div>
